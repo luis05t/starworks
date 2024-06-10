@@ -1,0 +1,29 @@
+<div style="padding: 50px;">
+  <h1 class="text-center">STAR WARS</h1>
+  <table class="table table-hover">
+    <thead class="table-danger">
+      <tr>
+        <th scope="col">name</th>
+        <th scope="col">height</th>
+        <th scope="col">mass</th>
+        <th scope="col">hair_color</th>
+        <th scope="col">skin_color</th>
+        <th scope="col">birth_year</th>
+        <th scope="col">gender</th>
+        <th scope="col">homeworld</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of starworksList">
+        <td>{{ item['name'] }}</td>
+        <td>{{ item['height'] }}</td>
+        <td>{{ item['mass'] }}</td>
+        <td>{{ item['hair_color'] }}</td>
+        <td>{{ item['skin_color'] }}</td>
+        <td>{{ item['birth_year'] }}</td>
+        <td>{{ item['gender'] }}</td>
+        <td>{{ item['homeworld'] }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
