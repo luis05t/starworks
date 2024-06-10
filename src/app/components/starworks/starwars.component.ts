@@ -14,6 +14,8 @@ import { StarworksInterfaces } from '../../interfaces/starworks.interfaces';
 export class StarwarsComponent implements OnInit {
 
   starworksList: StarworksInterfaces[] = [];
+  currentPage: number = 1;
+  pageSize: number = 5;
 
   constructor(private apiService: ApiService) {}
 
@@ -30,5 +32,21 @@ export class StarwarsComponent implements OnInit {
         console.log(err);
       },
     });
+  }
+  calculatePageIndexes(): [number, number] {
+    const startIndex = (this.currentPage - 1) * this.pageSize;
+    const endIndex = Math.min(startIndex + this.pageSize, this.starworksList.length);
+    return [startIndex, endIndex];
+  }
+  nextPage() {
+    const totalPages = Math.ceil(this.starworksList.length / this.pageSize);
+    if (this.currentPage < totalPages) {
+      this.currentPage++;
+    }
+  }
+  previousPage() {
+    if (this.currentPage > 1) {
+      this.currentPage--;
+    }
   }
 }
